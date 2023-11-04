@@ -1,41 +1,41 @@
-# API Web Básica em Go
+# Basic Web API in Go
 
-Uma API web simples criada em Go usando o pacote `net/http`. Este projeto demonstra como criar endpoints, lidar com solicitações HTTP e retornar respostas em Go.
+A simple web API built in Go using the `net/http` package. This project demonstrates how to create endpoints, handle HTTP requests, and return responses in Go.
 
-## Como Executar
+## How to Execute
 
-1. Certifique-se de ter o Go instalado no seu sistema.
+1. Make sure you have Go installed on your system.
 
-2. Clone o repositório:
+2. Clone the repository:
 
 ```
 git clone https://github.com/seu-usuario/api-web-basica-go
 ```
 
-3. Navegue até o diretório do projeto:
+3. Navigate to the project directory:
 ```
 cd api-web-basica-go
 ```
 
-4. Execute o servidor:
+4. Run the server:
 ```
 go run main.go
 ```
 
-5. O servidor estará rodando em http://localhost:8080.
+5. The server will be running at http://localhost:8080.
 
 - Endpoints
 ```
-/welcome: Retorna uma mensagem de boas-vindas simples.
+/welcome: Returns a simple welcome message.
 ```
 
 ```
-/form: Apresenta um formulário HTML onde você pode inserir um nome. Quando o formulário é enviado, ele retorna uma mensagem personalizada com o nome.
+/form: Presents an HTML form where you can enter a name. When the form is submitted, it returns a personalized message with the name.
 ```
 
-## Exemplo de Uso
-- Acesse http://localhost:8080/welcome para ver a mensagem de boas-vindas.
-- Acesse http://localhost:8080/form para acessar o formulário.
+## Example of use
+- Visit http://localhost:8080/welcome to see the welcome message.
+- Visit http://localhost:8080/form to access the form.
 
-## Licença
-Este projeto é licenciado sob a MIT License.
+## License
+This project is licensed under the MIT License.
