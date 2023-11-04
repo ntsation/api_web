@@ -9,7 +9,7 @@ A simple web API built in Go using the `net/http` package. This project demonstr
 2. Clone the repository:
 
 ```
-git clone https://github.com/seu-usuario/api-web-basica-go
+git clone https://github.com/ntsation/api_web.git
 ```
 
 3. Navigate to the project directory:
