@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -6,23 +6,31 @@ import (
 )
 
 func welcomeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome a API Web in Go")
+	nome := r.URL.Query().Get("nome")
+	fmt.Printf("Nome recebido: %s\n", nome)
+	if nome == "" {
+		nome = "Desconhecido"
+	}
+	fmt.Fprintf(w, "Bem-vindo à API Web em Go, %s!", nome)
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		r.ParseForm()
-		name := r.FormValue("name")
-		fmt.Fprintf(w, "Hello, %s!", name)
+		nome := r.FormValue("nome")
+		http.Redirect(w, r, "/bemvindo?nome="+nome, http.StatusSeeOther)
 	} else {
 		http.ServeFile(w, r, "form.html")
 	}
 }
 
 func main() {
-	http.HandleFunc("/welcome", welcomeHandler)
-	http.HandleFunc("/form", formHandler)
+	// Definir o roteamento de URLs para os manipuladores de função correspondentes
+	http.HandleFunc("/", formHandler)
+	http.HandleFunc("/bemvindo", welcomeHandler)
+	http.HandleFunc("/formulario", formHandler)
 
-	fmt.Println("Server running in http://localhost:8080")
+	// Iniciar o servidor HTTP
+	fmt.Println("Servidor em execução em http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
