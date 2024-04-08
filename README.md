@@ -1,40 +1,41 @@
-# API da web básica em Go
-Uma API da Web simples incorporada ao Go usando o pacote `net/http`.Este projeto demonstra como criar pontos de extremidade, lidar com solicitações HTTP e retornar respostas no GO.
+# Servidor Go
 
-## Como executar
+Este é um simples servidor web escrito em Go, que apresenta duas rotas:
 
-### 1. Assegure-se de ter Go instalado no seu sistema.
+- /: Esta rota apresenta um formulário HTML onde o usuário pode inserir seu nome.
 
-### 2. Clone o repositório:
+- /bemvindo: Esta rota recebe o nome inserido pelo usuário no formulário e exibe uma mensagem de boas-vindas personalizada.
 
-```
-git clone https://github.com/ntsation/api_web.git
-```
+## Requisitos
+```Certifique-se de ter Go instalado em sua máquina antes de executar este código.```
 
-### 3. Navegue até o diretório do projeto:
-```
-cd api_web
-```
+### Como executar
+1. Clone este repositório para o seu ambiente local ou baixe o arquivo main.go.
 
-### 4. Execute o servidor:
-```
-go run main.go
-```
+2. Abra o terminal e navegue até o diretório onde o arquivo main.go está localizado.
+3. Execute o seguinte comando para iniciar o servidor:
 
-### 5. O servidor estará em execução em http://localhost:8080.
+    ````
+    go run main.go
+    ````
 
-## Endpoints
-```
-/welcome: Retorna uma mensagem de boas-vindas simples.
-```
+4. O servidor começará a ser executado em http://localhost:8080.
 
-```
-/form: Apresenta um formulário HTML onde você pode inserir um nome.Quando o formulário é enviado, ele retorna uma mensagem personalizada com o nome.
-```
+### Uso
+1. Acesse http://localhost:8080 em seu navegador.
 
-## Exemplo de uso
-- Visite http://localhost:8080/welcome para ver a mensagem de boas -vindas.
-- Visite http://localhost:8080/form para acessar o formulário.
+2. Insira seu nome no formulário e envie.
 
-## Licença
-Este projeto está licenciado sob a licença do MIT.
+3. Você será redirecionado para a página de boas-vindas, onde verá uma mensagem personalizada.
+
+### Estrutura do código
+- O código consiste em dois manipuladores de função principais:
+
+    - ```formHandler```: Lida com requisições GET e POST para a rota raiz (/). Retorna um formulário HTML para GET e processa os dados do formulário para POST.
+
+    - ```welcomeHandler```: Lida com a rota /bemvindo e exibe uma mensagem de boas-vindas personalizada, utilizando o nome fornecido pelo usuário.
+    
+### Observações
+Se o usuário acessar diretamente http://localhost:8080/bemvindo, sem fornecer um nome na query string, ele será recebido como "Desconhecido".
+
+Os arquivos HTML e CSS relacionados ao formulário não estão incluídos neste código, mas espera-se que estejam presentes e funcionais no mesmo diretório em que o servidor está sendo executado. Certifique-se de ter esses arquivos presentes para que o formulário funcione corretamente.
